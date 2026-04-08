@@ -1,0 +1,623 @@
+/* --- Global Workflow Container --- */
+.wf-container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    background-color: #fcfcfd;
+    overflow: hidden;
+}
+
+.wf-content-wrapper {
+    flex: 1;
+    overflow-y: auto;
+    padding: 40px 60px;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* --- Header Styling --- */
+.wf-header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 35px;
+}
+
+.wf-main-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #111827;
+    margin: 0 0 6px 0;
+}
+
+.wf-sub-title {
+    color: #6b7280;
+    font-size: 15px;
+}
+/* --- Buttons Styling --- */
+.btn-add-wf, .btn-create-first {
+    outline: none !important; /* Click karne par black border hatane ke liye */
+    border: none !important;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent; /* Mobile par blue highlight hatane ke liye */
+    transition: all 0.3s ease;
+}
+
+/* Specific button overrides taaki click par koi extra color na aaye */
+.btn-add-wf:focus, 
+.btn-add-wf:active,
+.btn-create-first:focus,
+.btn-create-first:active {
+    outline: none !important;
+    box-shadow: none !important; /* Agar koi shadow aa rahi hai toh wo bhi hat jayegi */
+}
+
+/* Primary Add Workflow Button (Blue) */
+.btn-add-wf {
+    background-color: #2563eb;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+/* Green Action Button in Empty State */
+.btn-create-first {
+    background-color: #10b981;
+    color: white;
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    margin: 0 auto;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15); /* Soft shadow jaisa image mein hai */
+}
+
+.btn-create-first:hover {
+    background-color: #059669;
+    transform: translateY(-1px);
+}
+
+.btn-create-first:active {
+    transform: translateY(0px); /* Click par slight press effect without border */
+}
+
+/* --- Buttons --- */
+.btn-add-wf {
+    background-color: #2563eb; /* Primary Blue from Figma */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-add-wf:hover { background-color: #1d4ed8; }
+
+/* --- Empty State Card --- */
+.wf-empty-card {
+    background: #ffffff;
+    border: 2px dashed #e2e8f0; /* Dotted/Dashed border from design */
+    border-radius: 24px;
+    padding: 80px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.wf-icon-circle {
+    width: 80px;
+    height: 80px;
+    background: #f8fafc;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+}
+
+.wf-empty-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 12px;
+}
+
+.wf-empty-desc {
+    color: #64748b;
+    font-size: 15px;
+    max-width: 400px;
+    margin: 0 auto 30px;
+    line-height: 1.6;
+}
+
+/* --- Action Button (Green) --- */
+.btn-create-first {
+    background-color: #22ad7f; /* Green button from Figma mockup */
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 0 auto;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+}
+
+.btn-create-first:hover {
+    background-color: #22ad7f;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(16, 185, 129, 0.3);
+}
+
+/* Animation */
+.animate-fade-in {
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Container logic same... */
+
+/* Form Styling */
+.wf-main-form-card {
+    background: #f0fdf4; /* light green */
+    border: 2px solid #10b981; /* Green border jaisa mockup mein hai */
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.wf-form-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #f1f5f9;
+}
+input:focus,
+input:active,
+button:focus,
+button:active {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+
+.wf-header-icon-title { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 18px;color: black; }
+.green-text { color: #10b981; }
+.required-note { background: #f1f5f9;font-size: 12px; color: #94a3b8; border-radius: 5px;}
+
+.wf-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-bottom: 30px; }
+.form-group-wf label { display: block; font-weight: 600; color: #374151; margin-bottom: 8px; font-size: 14px; }
+.form-group-wf input { color: black; width: 100%; padding: 12px; border: 1px solid #e2e8f0; border-radius: 10px; font-size: 14px; }
+.field-hint { font-size: 11px; color: #94a3b8; margin-top: 5px; }
+
+/* Approval Levels Section */
+.wf-section-container {
+    background: #fcfcfd;
+    border: 1px solid #f1f5f9;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 25px;
+}
+
+.section-header-flex { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+.section-title-box { display: flex; align-items: center; gap: 10px; font-weight: 600; color: #1e293b; }
+.btn-section-add { background: #10b981; color: white; border: none; padding: 6px 14px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; gap: 5px; font-size: 13px; font-weight: 600; }
+
+.wf-count-indicator { font-size: 12px; color: #94a3b8; margin-top: -10px; margin-bottom: 15px; }
+
+/* Mini Form */
+.approver-mini-form { background: white; border: 2px solid #10b981; border-radius: 12px; padding: 20px; margin-bottom: 20px; }
+.btn-mini-add {
+    background: #10b981;
+    color: white;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-right: 20px;
+}
+.btn-mini-cancel {
+    background: #f1f5f9;
+    color: #475569;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Force show "New Approval Level" heading */
+.approver-mini-form h4 {
+    display: block;
+    color: #111827 !important;   /* proper black */
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.mini-form-row { display: grid; grid-template-columns: 1fr 1fr 0.5fr; gap: 15px; margin-bottom: 15px; }
+.mini-input label { display: block; font-size: 12px; font-weight: 600; margin-bottom: 5px; }
+.mini-input input { color: black; width: 100%; padding: 8px; border: 1px solid #e2e8f0; border-radius: 6px; }
+
+/* Approver List Item */
+.approver-list-item { 
+    display: flex; align-items: center; background: white; border: 1px solid #f1f5f9; 
+    padding: 12px 15px; border-radius: 10px; margin-bottom: 8px; transition: 0.2s;
+}
+.idx-circle { width: 28px; height: 28px; background: #dcfce7; color: #10b981; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 13px; margin-right: 15px; }
+.approver-info { flex: 1; display: flex; flex-direction: column; }
+.app-name { font-weight: 600; color: #1e293b; }
+.app-id { font-size: 11px; color: #94a3b8; }
+.btn-del-app { background: transparent; border: none; color: #ef4444; cursor: pointer; padding: 5px; }
+
+/* Screens Mapping */
+.btn-show-screens { background: #f1f5f9; border: none; padding: 6px 15px; border-radius: 8px; font-size: 13px; font-weight: 600; color: #475569; cursor: pointer; }
+.screens-selection-grid { 
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+    gap: 10px; padding: 15px; background: white; border: 1px solid #e2e8f0; border-radius: 10px; margin-top: 10px;
+}
+/* .screen-checkbox-item { display: flex; align-items: center; gap: 10px; padding: 10px; border-radius: 8px; border: 1px solid #f1f5f9; cursor: pointer; transition: 0.2s; }
+.screen-checkbox-item.selected { background: #f0fdf4; border-color: #10b981; } */
+/* ===== Map to Screens – Fix ===== */
+
+/* Each checkbox row */
+/* .screen-checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid #d1fae5;
+    background: #ffffff;
+    cursor: pointer;
+} */
+ /* Screen checkbox row item */
+.screen-checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid #d1fae5;
+    background: #ffffff;
+    cursor: pointer;
+    /* Ensure contents don't overflow */
+    overflow: hidden; 
+    min-width: 0; 
+}
+
+/* Monitor icon fixed size */
+.screen-checkbox-item svg {
+    width: 16px !important;
+    height: 16px !important;
+    min-width: 16px !important; /* Icon ko squeeze hone se rokne ke liye */
+    min-height: 16px !important;
+    color: #10b981;
+    flex-shrink: 0; /* Isse icon kabhi chota nahi hoga chahe text kitna bhi bada ho */
+}
+
+/* Screen name text handling */
+.screen-checkbox-item span {
+    color: #111827 !important;
+    font-size: 14px;
+    font-weight: 500;
+    /* Text overflow handling */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+
+/* Checkbox size control */
+.screen-checkbox-item input[type="checkbox"] {
+    width: 14px;
+    height: 14px;
+    accent-color: #10b981; /* green tick */
+    cursor: pointer;
+}
+/* Dropdown text color fix */
+.wf-dropdown-select {
+  color: #000000 !important; /* Text ko black karne ke liye */
+  background-color: #ffffff !important; /* Background white taaki text clear dikhe */
+  border: 1px solid #d1d5db;
+  padding: 8px 12px;
+  border-radius: 6px;
+  width: 100%;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* Jab dropdown open ho, tab options ka color */
+.wf-dropdown-select option {
+  color: #000000 !important;
+  background-color: #ffffff !important;
+}
+
+/* Focus state for better visibility */
+.wf-dropdown-select:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+}
+/* Screen icon */
+/* .screen-checkbox-item svg {
+    width: 16px;
+    height: 16px;
+    color: #10b981;
+} */
+
+/* Screen name text (THIS FIXES THE "." ISSUE) */
+/* .screen-checkbox-item span {
+    color: #111827 !important;  
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+} */
+
+/* Selected state */
+.screen-checkbox-item.selected {
+    background: #ecfdf5;
+    border-color: #10b981;
+}
+
+
+/* Footer Actions */
+.wf-form-footer { display: flex; justify-content: space-between; margin-top: 40px; padding-top: 20px; border-top: 1px solid #f1f5f9; }
+.btn-cancel-wf { background: white; border: 1px solid #e2e8f0; padding: 10px 25px; border-radius: 10px; display: flex; align-items: center; gap: 8px; cursor: pointer; font-weight: 600; color: #64748b; }
+.btn-save-wf { background: #10b981; color: white; border: none; padding: 10px 25px; border-radius: 10px; display: flex; align-items: center; gap: 8px; cursor: pointer; font-weight: 700; box-shadow: 0 4px 10px rgba(16,185,129,0.2); }
+
+/* --- Workflows List View Layout --- */
+.wf-list-view {
+    margin-top: 10px;
+}
+
+.wf-list-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #4b5563;
+}
+
+.meta-count {
+    color: #94a3b8;
+    font-weight: 400;
+}
+
+.wf-grid-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* --- Workflow Card --- */
+.wf-card {
+    background: #ffffff;
+    border: 1px solid #f1f5f9;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    transition: all 0.2s ease;
+}
+
+.wf-card:hover {
+    border-color: #10b981;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.wf-card-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.wf-card-icon-box {
+    width: 44px;
+    height: 44px;
+    background: #10b981;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wf-card-info h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #111827;
+    margin: 0;
+}
+
+.wf-card-info p {
+    font-size: 13px;
+    color: #6b7280;
+    margin: 4px 0 0 0;
+}
+
+.wf-card-actions {
+    margin-left: auto;
+    display: flex;
+    gap: 8px;
+}
+
+.wf-action-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+    background: white;
+    color: #6b7280;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.wf-action-btn.edit:hover { color: #10b981; background: #f0fdf4; border-color: #10b981; }
+.wf-action-btn.delete:hover { color: #ef4444; background: #fef2f2; border-color: #ef4444; }
+
+/* --- Card Body Sections --- */
+.wf-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.section-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #6b7280;
+    margin-bottom: 8px;
+}
+
+/* --- Approval Chain Flow --- */
+.chain-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.chain-pill {
+    background: #f0fdf4;
+    color: #166534;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    border: 1px solid #dcfce7;
+}
+
+.chain-arrow {
+    color: #94a3b8;
+    font-weight: bold;
+}
+
+/* --- Mapped Screens Tags --- */
+.mapped-pill-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.mapped-tag {
+    background: #eff6ff;
+    color: #1e40af;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    border: 1px solid #dbeafe;
+}
+
+/* --- Tip Box --- */
+.wf-tip-box {
+    margin-top: 40px;
+    background: #f0fdf4;
+    border: 1px solid #dcfce7;
+    border-radius: 12px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.tip-icon {
+    width: 24px;
+    height: 24px;
+    border: 2px solid #10b981;
+    color: #10b981;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.wf-tip-box p {
+    margin: 0;
+    font-size: 13px;
+    color: #065f46;
+    line-height: 1.5;
+}
+/* Card header ko flexible banayein taaki buttons right mein rahein */
+.wf-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: relative;
+}
+
+/* Actions container */
+.wf-card-actions {
+    display: flex !important; /* Force display */
+    gap: 12px;
+    z-index: 50; /* Baaki elements ke upar dikhne ke liye */
+}
+
+/* Buttons styling */
+.wf-action-btn {
+    all: unset; /* Default button styling hatane ke liye */
+    cursor: pointer;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border-radius: 8px;
+    transition: 0.3s;
+    border: 1px solid #e2e8f0;
+}
+
+/* Pencil (Edit) Icon */
+.wf-action-btn.edit {
+    color: #2563eb !important; /* Force Blue color */
+    background: #eff6ff;
+}
+
+/* Trash (Delete) Icon */
+.wf-action-btn.delete {
+    color: #ef4444 !important; /* Force Red color */
+    background: #fef2f2;
+}
+
+.wf-action-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}

@@ -1,0 +1,731 @@
+/* Main Layout Grid */
+.validation-main-grid {
+    display: grid;
+    grid-template-columns: 250px 300px 1fr; /* 3 Column Layout */
+    gap: 0;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    min-height: 600px;
+    overflow: hidden;
+    margin-top: 24px;
+}
+/* Form background light orange */
+.add-rule-card.orange-bg {
+    background-color: #fffaf5; /* Very light orange tint */
+    border: 1px solid #fed7aa;
+    border-radius: 16px;
+    padding: 24px;
+    margin: 20px;
+    box-shadow: 0 4px 15px rgba(249, 115, 22, 0.05);
+}
+
+/* Dark text for visibility */
+.dark-input {
+    color: #0f172a !important;
+    font-weight: 600 !important;
+    background: #ffffff !important;
+}
+
+.dark-text {
+    color: #1e293b !important;
+    font-weight: 700 !important;
+}
+
+.status-blue {
+    color: #2563eb;
+    font-weight: 600;
+}
+/* Form ka size aur spacing badhane ke liye */
+.add-rule-card.enlarged-form {
+    padding: 35px !important;
+    background-color: #fffaf5; /* Light Orange */
+    border: 1px solid #fed7aa;
+    margin: 25px;
+    border-radius: 20px;
+}
+
+.large-input {
+    height: 48px;
+    font-size: 15px !important;
+}
+
+/* Buttons ko Left aur Right corners par dalne ke liye */
+.rule-actions-spaced {
+    display: flex;
+    justify-content: space-between; /* Cancel left mein aur Add right mein */
+    align-items: center;
+    border-top: 1px solid #fed7aa;
+    padding-top: 25px;
+    margin-top: 20px;
+}
+
+.btn-add-rule-large {
+    background: #f97316 !important; /* Orange */
+    color: white !important;
+    padding: 12px 35px;
+    border-radius: 10px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(249, 115, 22, 0.2);
+}
+
+.btn-cancel-large {
+    background: #fff;
+    color: #64748b;
+    padding: 12px 35px;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.btn-cancel-large:hover {
+    background: #f8fafc;
+}
+
+/* Edit/Delete Buttons in list pushed to right */
+.rule-action-btns {
+    display: flex;
+    gap: 12px;
+    margin-left: auto; /* Push to right */
+}
+/* Value tag styling in list */
+.rule-value-tag {
+    background: #f1f5f9;
+    padding: 2px 10px;
+    border-radius: 4px;
+    font-size: 13px;
+}
+
+/* Two column grid for Value/Status */
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+/* Rule Card Layout Fix */
+.rule-card-top {
+    display: flex;
+    align-items: center; /* Vertically center content */
+    gap: 20px;
+    width: 100%;
+}
+
+.rule-main-content {
+    flex: 1; /* Ye space lega taaki buttons right mein push ho jayein */
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+/* Status visibility fix */
+.status-blue {
+    color: #2563eb !important; /* Bright Blue */
+    font-weight: 700 !important;
+    font-size: 14px;
+    background: #eff6ff;
+    padding: 2px 8px;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.rule-info-row {
+    color: #475569;
+    font-size: 13px;
+    margin-top: 5px;
+    display: block; /* Ensure it's not hidden */
+}
+
+/* Buttons ko right mein dalne ke liye */
+.rule-action-btns {
+    display: flex;
+    gap: 10px;
+    margin-left: auto; /* Push to the extreme right */
+    align-self: center;
+}
+
+.val-action-btn {
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    background: white;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.val-action-btn.edit:hover { background: #f0f7ff; color: #2563eb; border-color: #bfdbfe; }
+.val-action-btn.delete:hover { background: #fef2f2; color: #dc2626; border-color: #fecaca; }
+
+/* Green Success Banner */
+.success-banner-modern {
+    margin: 20px;
+    padding: 16px;
+    background-color: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-radius: 8px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.banner-text {
+    color: #166534;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.banner-text strong {
+    display: block;
+    color: #14532d;
+    margin-bottom: 2px;
+}
+
+/* Orange buttons */
+.btn-add-rule, .btn-orange-add {
+    background: #f97316 !important;
+    color: white !important;
+    border-radius: 8px;
+    padding: 10px 24px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+}
+/* Main Grid Container Fix */
+.validation-main-grid {
+    display: grid;
+    grid-template-columns: 240px 280px 1fr;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 20px; /* Rounded corners for the main box */
+    min-height: 580px;
+    margin-top: 24px;
+    overflow: hidden; /* Taaki internal items corners se bahar na nikle */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Removing dividing lines between columns */
+.val-column {
+    display: flex;
+    flex-direction: column;
+    border-right: none !important; /* Vertical lines removed */
+}
+
+/* Column Header Styling */
+.col-header {
+    padding: 18px 24px;
+    background: #fcfcfc;
+    font-weight: 600;
+    color: #475569;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-size: 15px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.col-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px; /* Space for rounded items */
+}
+
+/* List Items Fix */
+.val-item {
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 12px; /* Rounded corners for boxes inside */
+    margin-bottom: 6px;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    color: #334155;
+    border: 1px solid transparent;
+}
+
+.val-item:hover {
+    background: #f8fafc;
+    border-color: #e2e8f0;
+}
+
+/* ACTIVE STATE: White text only on selection */
+.val-item.active {
+    background: #2563eb !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
+
+.val-item.active .val-label,
+.val-item.active .val-sub,
+.val-item.active .chevron {
+    color: #ffffff !important; /* All text becomes white */
+}
+
+.val-item-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.val-label {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.val-sub {
+    font-size: 11px;
+    color: #94a3b8;
+    margin-top: 2px;
+}
+
+/* Validation Content Styling */
+.content-col {
+    background: #ffffff;
+}
+
+.field-info-bar {
+    padding: 20px 24px;
+    border-bottom: 1px solid #f1f5f9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Orange Rule Card */
+.add-rule-card {
+    margin: 20px;
+    padding: 24px;
+    border: 1px solid #fed7aa;
+    background: #fff;
+    border-radius: 16px; /* Rounded corners */
+    box-shadow: 0 10px 15px -3px rgba(249, 115, 22, 0.1);
+}
+
+.rule-card-item {
+    margin-bottom: 12px;
+    padding: 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px; /* Rounded corner */
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: #fff;
+}
+.validation-main-grid {
+    display: grid;
+    grid-template-columns: 240px 280px 1fr;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    min-height: 550px;
+    margin-top: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+/* Triple Column Layout */
+.validation-main-grid {
+    display: grid;
+    grid-template-columns: 240px 280px 1fr;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    min-height: 550px;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+/* Active Selection Blue color */
+.val-item.active {
+    background: #2563eb !important;
+    color: white !important;
+}
+
+.val-item.active .val-sub {
+    color: #bfdbfe !important;
+}
+/* Top Add Rule Button */
+.add-rule-btn-top {
+    background-color: #2563eb !important; /* Pure Blue */
+    color: #ffffff !important;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.add-rule-btn-top:hover {
+    background-color: #1d4ed8; /* Darker blue on hover */
+}
+/* Rule Visual Card */
+.rule-visual-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    margin: 0 20px 12px;
+    padding: 16px;
+    transition: all 0.3s ease;
+}
+
+.rule-card-top {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+}
+
+.rule-badge-index {
+    background: #fff7ed;
+    color: #f97316;
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.rule-type-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.rule-name-text {
+    font-weight: 700;
+    font-size: 16px;
+    color: #1e293b;
+}
+
+.rule-value-tag {
+    background: #f1f5f9;
+    padding: 2px 10px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.rule-error-row {
+    font-size: 13px;
+    color: #64748b;
+}
+
+.error-text-red {
+    color: #ef4444;
+    margin-left: 5px;
+}
+
+/* Success Inline Alert */
+.success-alert-box-inline {
+    margin: 20px;
+    padding: 12px 16px;
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-radius: 8px;
+    color: #166534;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+}
+
+.val-action-btn {
+    border: 1px solid #e2e8f0;
+    background: white;
+    padding: 6px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-left: 5px;
+    color: #64748b;
+}
+
+.val-action-btn.edit:hover { color: #2563eb; background: #eff6ff; }
+.val-action-btn.delete:hover { color: #dc2626; background: #fef2f2; }
+/* Orange Form Card */
+.add-rule-card {
+    margin: 20px;
+    padding: 24px;
+    border: 1px solid #fed7aa; /* Orange Border */
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(249, 115, 22, 0.08);
+}
+
+.btn-add-rule, .btn-orange-add {
+    background: #f97316 !important; /* Orange Button */
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-add-rule:hover { background: #ea580c !important; }
+
+/* Rule Card Item */
+.rule-card-item {
+    margin: 0 20px 12px;
+    padding: 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #fff;
+    transition: transform 0.2s;
+}
+
+.rule-card-item:hover {
+    transform: translateX(4px);
+    border-color: #bfdbfe;
+}
+.val-column { border-right: 1px solid #e2e8f0; }
+/* Layout */
+.validation-main-grid {
+    display: grid;
+    grid-template-columns: 240px 280px 1fr;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    min-height: 550px;
+    overflow: hidden;
+}
+
+.val-column { border-right: 1px solid #e2e8f0; }
+
+.col-header {
+    padding: 14px 20px;
+    background: #f8fafc;
+    border-bottom: 1px solid #e2e8f0;
+    font-weight: 600;
+    color: #475569;
+    display: flex; gap: 8px; align-items: center;
+}
+
+.val-item {
+    padding: 12px 20px;
+    display: flex; justify-content: space-between; align-items: center;
+    cursor: pointer; border-bottom: 1px solid #f1f5f9;
+}
+
+/* Figma Active Blue */
+.val-item.active { background: #2563eb !important; color: #fff !important; }
+.val-item.active .val-sub { color: #bfdbfe; }
+
+.val-label { font-size: 14px; font-weight: 500; }
+.val-sub { font-size: 11px; color: #94a3b8; }
+
+/* Add Rule Card */
+.add-rule-card {
+    margin: 20px; padding: 24px;
+    border: 1px solid #fed7aa;
+    background: #fff; border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(251, 146, 60, 0.1);
+}
+
+.btn-add-rule {
+    background: #f97316; /* Orange button like Image 4 */
+    color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer;
+}
+
+.no-rules-box {
+    display: flex; flex-direction: column; align-items: center; padding: 60px; color: #94a3b8;
+}
+
+.btn-orange-add {
+    margin-top: 16px; background: #f97316; color: white; padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer;
+}
+
+.btn-save-config-final {
+    background: #16a34a; color: white; padding: 10px 24px; border: none; border-radius: 8px; display: flex; gap: 8px; font-weight: 600;
+}
+.col-header {
+    padding: 14px 20px;
+    background: #f8fafc;
+    border-bottom: 1px solid #e2e8f0;
+    font-weight: 600;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #475569;
+}
+
+.val-item {
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    border-bottom: 1px solid #f1f5f9;
+    transition: 0.2s;
+}
+
+/* Active State matches Blue color in Image */
+.val-item.active {
+    background: #2563eb !important;
+    color: white !important;
+}
+
+.val-item.active .val-sub { color: #bfdbfe; }
+
+.val-sub { font-size: 11px; color: #94a3b8; }
+
+.add-rule-card {
+    margin: 20px;
+    padding: 24px;
+    border: 1px solid #fed7aa; /* Orange tint like Image 4 */
+    background: #fff;
+    border-radius: 12px;
+}
+
+.rule-item-row {
+    margin: 0 20px 10px;
+    padding: 12px 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+}
+
+.rule-type-name { font-weight: 600; color: #1e293b; display: block; }
+.rule-msg { font-size: 12px; color: #64748b; }
+
+.btn-add-rule {
+    background: #f97316; /* Orange button like Image 4 */
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+/* Common Column Styling */
+.val-column {
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #e2e8f0;
+}
+
+.col-header {
+    padding: 16px 20px;
+    background: #f8fafc;
+    border-bottom: 1px solid #e2e8f0;
+    font-weight: 600;
+    color: #1e293b;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.col-list {
+    flex: 1;
+    overflow-y: auto;
+    background: #fff;
+}
+
+/* Item Styling */
+.val-item {
+    padding: 14px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    border-bottom: 1px solid #f1f5f9;
+    transition: all 0.2s ease;
+}
+
+.val-item:hover {
+    background: #f8fafc;
+}
+
+/* Active States (Figma Blue) */
+.val-item.active {
+    background: #2563eb !important;
+    color: #ffffff !important;
+}
+
+.val-item.active .val-sub {
+    color: #bfdbfe !important;
+}
+
+.val-item-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.val-label { font-weight: 500; font-size: 14px; }
+.val-sub { font-size: 12px; color: #64748b; }
+
+/* Right Content Area */
+.content-col {
+    background: #fcfcfc;
+    border-right: none;
+}
+
+.field-info-bar {
+    padding: 16px 24px;
+    background: #fff;
+    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Empty State */
+.empty-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+    padding: 40px;
+    color: #94a3b8;
+}
+
+/* Add Rule Form Card */
+.add-rule-card {
+    margin: 24px;
+    padding: 24px;
+    background: #fff;
+    border: 1px solid #bfdbfe;
+    border-radius: 12px;
+    box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.1);
+}
+
+.rule-card-header {
+    font-weight: 600;
+    color: #2563eb;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+/* Final Save Button */
+.btn-save-final {
+    background: #2563eb;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-save-final:hover { background: #1d4ed8; }

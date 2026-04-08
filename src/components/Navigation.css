@@ -1,0 +1,188 @@
+/* ===== Global ===== */
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(to bottom, #ffffff, #f3e8ff);
+  overflow-x: hidden;
+}
+
+/* ===== Top Navigation ===== */
+.top-hub {
+  background: white;
+  padding: 12px 40px;
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid #e5e5ef;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* ===== Left Hub ===== */
+.left-hub {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.hub-icon-box {
+  width: 42px;
+  height: 42px;
+  background: #4f46ff;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hub-main {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.hub-sub {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+/* ===== Nav Items ===== */
+.nav-items {
+  margin-left: auto;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.hub-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #4b5563;
+  cursor: pointer;
+  border-radius: 8px;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.hub-item:hover:not([class*="active-"]) {
+  background: #f3f4f6;
+  color: #111827;
+}
+
+/* ===== Active States ===== */
+.active-dashboard { background: #8b5cf6; color: white; }
+.active-screen    { background: #2563eb; color: white; }
+.active-module    { background: #4f46e5; color: white; }
+.active-workflow  { background: #10b981; color: white; }
+/* Module Tab Active State */
+.hub-item.active-module {
+    background-color: #6366f1 !important; /* Indigo Blue from Figma */
+    color: white !important;
+    border-radius: 8px;
+}
+/* 1. Dashboard active hone par text (span) ko white force karein */
+.active-dashboard span {
+  color: white !important;
+}
+/* Purana .hub-item:hover block delete karke ise likhein */
+
+/* Sirf un items par hover ho jo active NAHI hain */
+.hub-item:hover:not([class*="active-"]) {
+    background-color: #f3f4f6 !important;
+    color: #111827 !important;
+    cursor: pointer;
+}
+
+/* Jab item Active ho, toh hover karne par background vahi rahe (White na ho) */
+.hub-item.active-dashboard:hover {
+    background-color: #8b5cf6 !important; /* Wahi Purple color */
+    cursor: default;
+}
+
+.hub-item.active-screen:hover {
+    background-color: #2563eb !important; /* Wahi Blue color */
+    cursor: default;
+}
+
+.hub-item.active-module:hover {
+    background-color: #6366f1 !important; /* Wahi Indigo color */
+    cursor: default;
+}
+
+.hub-item.active-workflow:hover {
+    background-color: #10b981 !important; /* Wahi Green color */
+    cursor: default;
+}
+
+/* Screen Configuration Active (Blue) */
+.hub-item.active-screen {
+    background-color: #2563eb !important; /* Primary Blue */
+    color: white !important;
+    border-radius: 8px;
+}
+
+.hub-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: 500;
+    color: #4b5563;
+}
+
+.hub-item:hover {
+    background-color: #f3f4f6;
+    border-radius: 8px;
+}
+/* Workflow Configuration Active (Green) */
+.hub-item.active-workflow {
+    background-color: #10b981 !important; /* Green color from Figma mockup */
+    color: white !important; /* Text white ho jayega */
+    border-radius: 8px;
+}
+
+/* Ensure icons inside active items are also forced to be white */
+.hub-item[class*="active-"] {
+    color: white !important;
+}
+/* Logout Dropdown Box */
+.logout-dropdown {
+  position: absolute;
+  top: 100%; /* Hub ke thik niche */
+  left: 0;
+  margin-top: 8px;
+  background-color: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  color: #ef4444; /* Red color for logout */
+  font-weight: 500;
+  min-width: 120px;
+  transition: background 0.2s;
+}
+
+.logout-dropdown:hover {
+  background-color: #fef2f2;
+}
+
+.left-hub {
+  cursor: pointer;
+}

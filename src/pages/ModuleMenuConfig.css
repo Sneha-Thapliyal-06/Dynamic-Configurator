@@ -1,0 +1,976 @@
+/* 1. Global Layout */
+.module-menu-container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    background-color: #fcfcfd;
+    overflow: hidden;
+}
+
+.module-content-wrapper {
+    flex: 1;
+    overflow-y: auto;
+    padding: 40px 60px;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* 2. Header Section */
+.module-header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 35px;
+}
+
+.config-view-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #111827;
+    margin: 0 0 6px 0;
+}
+
+.config-view-sub {
+    color: #6b7280;
+    font-size: 15px;
+}
+
+/* 3. Toggle Pill */
+.mode-toggle-pill {
+    background-color: #f3f4f6;
+    padding: 6px;
+    border-radius: 14px;
+    display: flex;
+    gap: 6px;
+    border: 1px solid #e5e7eb;
+}
+
+.mode-btn {
+    border: none;
+    padding: 10px 22px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #6b7280;
+    background: transparent;
+}
+
+.mode-btn.active {
+    background-color: #6366f1;
+    color: white;
+}
+
+/* 4. Tree View Rectangle Logic */
+/* Main White Card jisme Title aur Buttons hain */
+.module-main-card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 20px;
+    
+    /* Size Chota karne ke liye logic */
+    max-width: 1200px;  /* Iski length yahan se control hogi */
+    margin: 0 auto;     /* Screen ke center mein rahega */
+    
+    width: 100%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+/* Rectangle box ka size bhi card ke mutabiq adjust hoga */
+.tree-rectangle-container {
+    margin: 10px 30px 30px 30px; /* Margins thode kam kiye hain */
+    padding: 60px 30px;          /* Vertical padding bhi kam ki hai */
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;           /* Height ko bhi chota kiya gaya hai */
+}
+
+/* Header section padding */
+.card-top-bar-clean {
+    padding: 25px 35px 5px 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.inner-card-title { font-size: 20px; font-weight: 700; color: #111827; }
+.inner-card-sub { font-size: 14px; color: #6b7280; }
+
+
+.text-action-btn {
+    background: transparent;
+    border: none;
+    color: #6b7280;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-left: 24px;
+}
+
+.empty-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #374151;
+    margin: 20px 0 8px 0;
+}
+
+.empty-desc {
+    color: #9ca3af;
+    font-size: 14px;
+    max-width: 320px;
+    line-height: 1.6;
+}
+
+/* 5. Management Grid */
+/* Management Mode: 3 Compact Columns */
+.management-grid {
+    display: flex;
+    justify-content: center; /* Columns ko screen ke center mein rakhega */
+    gap: 20px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.column-container {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 20px; /* Padding kam ki gayi hai compact look ke liye */
+    
+    /* Height Control */
+    flex: 0 1 380px;  /* Width narrow rakhi hai */
+    min-height: 380px; /* Height ko 520px se kam karke 380px kiya gaya hai */
+    
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+/* Header within columns */
+.column-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+/* Status text (e.g., "0 headers") */
+.column-stats {
+    font-size: 12px;
+    color: #9ca3af;
+    margin-bottom: 25px; /* Spacing kam ki gayi hai */
+}
+
+/* Empty state message centering */
+.column-body-empty {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #9ca3af;
+    font-size: 14px;
+    padding: 0 15px;
+}
+
+.column-title-box {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-weight: 700;
+    color: #111827;
+    font-size: 17px;
+}
+
+.indigo-icon { color: #6366f1; }
+
+.column-stats {
+    font-size: 13px;
+    color: #9ca3af;
+    margin-bottom: 45px;
+}
+
+.column-body-empty {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #9ca3af;
+    font-size: 15px;
+}
+
+/* Animations */
+.animate-fade-in {
+    animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ... baki purani styles same rahengi ... */
+
+/* Inline Form Styling */
+.inline-add-form {
+    background: #f8faff;
+    border: 1px solid #dbeafe;
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.inline-add-form label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: #64748b;
+    margin-bottom: 6px;
+}
+
+.inline-add-form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #6366f1; /* Indigo border */
+    border-radius: 8px;
+    font-size: 14px;
+    margin-bottom: 12px;
+    outline: none;
+    color: #111827;
+}
+.inline-add-form input::placeholder {
+    color: #94a3b8; /* Light grey placeholder */
+}
+
+.inline-form-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-save-inline {
+    background: #6366f1;
+    color: white;
+    border: none;
+    padding: 6px 15px;
+    border-radius: 6px;
+    font-size: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.btn-cancel-inline {
+    background: #fff;
+    color: #64748b;
+    border: 1px solid #e2e8f0;
+    padding: 6px 15px;
+    border-radius: 6px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+/* Config List Item */
+.config-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    border: 1px solid #f1f5f9;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    background: white;
+    transition: 0.2s;
+}
+
+.config-list-item:hover {
+    border-color: #6366f1;
+}
+
+.item-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: #1e293b;
+}
+
+.item-actions {
+    display: flex;
+    gap: 5px;
+}
+
+.edit-mini, .del-mini {
+    background: none;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.edit-mini { color: #2563eb; }
+.del-mini { color: #dc2626; }
+
+.edit-mini:hover { background: #eff6ff; }
+.del-mini:hover { background: #fef2f2; }
+
+.column-scroll-area {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+/* ... Previous global styles stay exactly the same ... */
+/* Styling for Module Form Background & Border */
+.module-form-bg {
+    background-color: #f1f5ff !important; /* Light blue tint from image */
+    border: 1px solid #dbeafe !important;
+    padding: 24px !important;
+}
+
+/* Header selection highlight */
+.config-list-item.selected-header {
+    background-color: #6366f1 !important;
+    border-color: #6366f1 !important;
+}
+
+.selected-header .item-name,
+.selected-header .item-seq-tag {
+    color: #ffffff !important;
+}
+
+/* Icons/Buttons in selected item */
+.selected-header .edit-mini, 
+.selected-header .del-mini {
+    color: #ffffff !important;
+}
+
+.form-row-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+/* Select dropdown styling */
+.inline-add-form select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #111827 !important;
+    background: #ffffff !important;
+    outline: none;
+}
+/* Styling for Module List Item */
+.module-item-card {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 12px;
+    margin-bottom: 8px;
+    transition: 0.2s;
+}
+
+.module-item-top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.drag-handle { color: #cbd5e1; cursor: grab; }
+
+.module-text {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.m-name { font-size: 14px; font-weight: 600; color: #1e293b; }
+.m-subtext { font-size: 11px; color: #94a3b8; }
+
+.status-pill {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 4px;
+    text-transform: capitalize;
+}
+
+.status-pill.active { background: #dcfce7; color: #15803d; }
+.status-pill.inactive { background: #fee2e2; color: #b91c1c; }
+
+/* Existing Styling Preserved below... */
+
+.module-menu-container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    background-color: #fcfcfd;
+    overflow: hidden;
+}
+
+.module-content-wrapper {
+    flex: 1;
+    overflow-y: auto;
+    padding: 40px 60px;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.module-form-bg {
+    background-color: #f1f5ff !important;
+    border: 1px solid #dbeafe !important;
+    padding: 24px !important;
+}
+
+.config-list-item.selected-header {
+    background-color: #6366f1 !important;
+    border-color: #6366f1 !important;
+}
+
+.selected-header .item-name,
+.selected-header .item-seq-tag {
+    color: #ffffff !important;
+}
+
+.form-row-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.inline-add-form select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #111827 !important;
+    background: #ffffff !important;
+    outline: none;
+}
+
+.inline-add-form {
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #4b5563;
+    margin-bottom: 6px;
+}
+
+.inline-add-form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #111827 !important;
+    background-color: #ffffff !important;
+    outline: none;
+}
+.inline-add-form select:focus {
+    border-color: #6366f1;
+}
+.inline-add-form {
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #4b5563;
+    margin-bottom: 6px;
+}
+
+/* Typing Visibility Fix */
+.inline-add-form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #111827 !important; /* Dark text color */
+    background-color: #ffffff !important;
+    outline: none;
+}
+
+.inline-add-form input:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.1);
+}
+
+.item-content-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.item-seq-tag {
+    font-size: 11px;
+    color: #94a3b8;
+    margin-top: 2px;
+}
+
+.req { color: #ef4444; }
+
+/* ... Rest of the list and action button styles ... */
+/* Header selection highlight */
+.config-list-item.selected-header {
+    background-color: #6366f1 !important; /* Indigo Blue from Figma */
+    border-color: #6366f1 !important;
+}
+
+.selected-header .item-name,
+.selected-header .item-seq-tag,
+.selected-header .edit-mini {
+    color: #ffffff !important; /* White text on selection */
+}
+
+/* Form row for Icon and Status */
+.form-row-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.inline-add-form select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #111827;
+    background: #ffffff;
+    outline: none;
+}
+/* Module card ke buttons ke liye spacing */
+.module-item-card .item-actions {
+    display: flex;
+    gap: 4px;
+    margin-left: 8px;
+}
+
+/* Module list container padding fix */
+.column-scroll-area {
+    padding: 2px;
+}
+/* --- 1. Selection Highlighting --- */
+/* Jab kisi header ya module par click karein toh uska background Indigo ho jaye */
+.config-list-item.selected-header,
+.module-item-card.selected-header {
+    background-color: #6366f1 !important; /* Indigo Blue from Figma */
+    border-color: #6366f1 !important;
+}
+
+.selected-header .item-name,
+.selected-header .m-name,
+.selected-header .item-seq-tag,
+.selected-header .edit-mini,
+.selected-header .del-mini,
+.selected-header .drag-handle {
+    color: #ffffff !important; /* Text and icons become white on selection */
+}
+
+/* --- 2. Menu Form & Radio Buttons --- */
+.menu-form-bg {
+    background-color: #f1f5ff !important; /* Light blue tint for menu form */
+    border: 1px solid #dbeafe !important;
+}
+
+.radio-group-box {
+    margin-top: 10px;
+    padding: 10px 0;
+}
+
+.radio-group-box label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #4b5563;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.radio-options {
+    display: flex;
+    gap: 20px;
+    margin-top: 5px;
+}
+
+.radio-options label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #1e293b;
+    cursor: pointer;
+    margin-bottom: 0; /* Aligning horizontally */
+}
+
+.radio-options input[type="radio"] {
+    width: 16px;
+    height: 16px;
+    accent-color: #6366f1; /* Indigo radio button */
+    cursor: pointer;
+    margin: 0;
+}
+
+/* --- 3. Status Pills in Menu List --- */
+.status-pill.active {
+    background-color: #dcfce7;
+    color: #15803d;
+}
+
+.status-pill.inactive {
+    background-color: #fee2e2;
+    color: #b91c1c;
+}
+
+/* Module item text update */
+.m-subtext {
+    font-size: 11px;
+    color: #94a3b8;
+    display: block;
+    margin-top: 2px;
+}
+/* --- Add Buttons Styling Update --- */
+.add-square-btn {
+    background-color: #ffffff !important; /* White Background */
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-square-btn:hover {
+    background-color: #f9fafb !important;
+    border-color: #6366f1;
+}
+
+.plus-purple {
+    color: #6366f1 !important; /* Purple Plus Icon */
+}
+
+/* --- Toggle Buttons Border Fix --- */
+.mode-btn {
+    outline: none !important; /* Remove black border on click */
+    border: none;
+    background: transparent;
+    padding: 10px 22px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #6b7280;
+    transition: 0.2s;
+}
+
+.mode-btn.active {
+    background-color: #6366f1 !important; /* Keep purple background */
+    color: white !important; /* Keep white text */
+    box-shadow: none !important;
+}
+
+/* --- Module Card Hover & Selection Styling --- */
+.module-item-card {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 12px;
+    margin-bottom: 8px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.module-item-card:hover {
+    transform: translateY(-2px); /* Slight lift on hover */
+    border-color: #6366f1;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.08);
+}
+
+/* Selection State */
+.module-item-card.selected-header {
+    background-color: #6366f1 !important;
+    border-color: #6366f1 !important;
+    transform: none; /* No lift when selected */
+}
+
+.selected-header .m-name,
+.selected-header .m-subtext,
+.selected-header .drag-handle,
+.selected-header .edit-mini,
+.selected-header .del-mini {
+    color: #ffffff !important; /* White text/icons on Indigo background */
+}
+
+/* Rest of the styles preserved below... */
+.module-menu-container { height: 100vh; width: 100vw; display: flex; flex-direction: column; background-color: #fcfcfd; overflow: hidden; }
+.module-content-wrapper { flex: 1; overflow-y: auto; padding: 40px 60px; max-width: 1400px; margin: 0 auto; width: 100%; box-sizing: border-box; }
+.module-header-flex { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 35px; }
+.config-view-title { font-size: 28px; font-weight: 700; color: #111827; margin: 0 0 6px 0; }
+.config-view-sub { color: #6b7280; font-size: 15px; }
+.mode-toggle-pill { background-color: #f3f4f6; padding: 6px; border-radius: 14px; display: flex; gap: 6px; border: 1px solid #e5e7eb; }
+.module-main-card { background: white; border: 1px solid #e5e7eb; border-radius: 20px; width: 100%; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04); }
+.tree-rectangle-container { margin: 10px 30px 30px 30px; padding: 60px 30px; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 300px; }
+.card-top-bar-clean { padding: 25px 35px 5px 35px; display: flex; justify-content: space-between; align-items: center; }
+.inner-card-title { font-size: 20px; font-weight: 700; color: #111827; }
+.inner-card-sub { font-size: 14px; color: #6b7280; }
+.management-grid { display: flex; justify-content: center; gap: 20px; width: 100%; margin-top: 10px; }
+.column-container { background: white; border: 1px solid #e5e7eb; border-radius: 16px; padding: 20px; flex: 0 1 380px; min-height: 380px; display: flex; flex-direction: column; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04); }
+.column-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+.column-title-box { display: flex; align-items: center; gap: 14px; font-weight: 700; color: #111827; font-size: 17px; }
+.indigo-icon { color: #6366f1; }
+.column-scroll-area { flex: 1; overflow-y: auto; padding-right: 5px; }
+.inline-add-form { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 12px; padding: 20px; margin-bottom: 20px; }
+.form-group label { display: block; font-size: 13px; font-weight: 600; color: #4b5563; margin-bottom: 6px; }
+.inline-add-form input, .inline-add-form select { width: 100%; padding: 10px; border: 1px solid #d1d5db; border-radius: 8px; font-size: 14px; color: #111827 !important; background-color: #ffffff !important; outline: none; }
+.inline-add-form input:focus { border-color: #6366f1; box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.1); }
+.config-list-item { display: flex; justify-content: space-between; align-items: center; padding: 12px 15px; border: 1px solid #f1f5f9; border-radius: 10px; margin-bottom: 8px; background: white; transition: 0.2s; cursor: pointer; }
+.config-list-item:hover { border-color: #6366f1; }
+.item-name { font-size: 14px; font-weight: 500; color: #1e293b; }
+.item-actions { display: flex; gap: 5px; }
+.edit-mini, .del-mini { background: none; border: none; padding: 5px; cursor: pointer; border-radius: 4px; }
+.edit-mini { color: #2563eb; }
+.del-mini { color: #dc2626; }
+.edit-mini:hover { background: #eff6ff; }
+.del-mini:hover { background: #fef2f2; }
+.menu-form-bg { background-color: #f1f5ff !important; border: 1px solid #dbeafe !important; }
+.radio-options { display: flex; gap: 20px; margin-top: 5px; }
+.radio-options label { display: flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 500; color: #1e293b; cursor: pointer; }
+.status-pill { font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; text-transform: capitalize; }
+.status-pill.active { background-color: #dcfce7; color: #15803d; }
+.status-pill.inactive { background-color: #fee2e2; color: #b91c1c; }
+
+/* ===============================
+   TREE CONTAINER
+================================ */
+.tree-rectangle-container-box {
+  padding: 18px;
+  background: #ffffff;
+}
+
+.tree-scroll-container {
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+/* ===============================
+   TREE ROWS
+================================ */
+.tree-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  border-radius: 12px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+  color: #1f2937;            /* ✅ TEXT FIX */
+}
+
+.tree-row:hover {
+  background: #eef2ff;
+}
+
+/* ===============================
+   HEADER / MODULE / MENU
+================================ */
+.header-row-tree {
+  background: #f3f5ff;
+  font-weight: 600;
+  color: #111827;            /* ✅ FIX */
+}
+
+.module-row-tree {
+  background: #fafbff;
+  margin-left: 24px;
+  color: #1f2937;
+}
+
+.menu-row-tree {
+  background: #ffffff;
+  margin-left: 52px;
+  border: 1px solid #e5e7eb;
+  color: #1f2937;
+}
+
+/* ===============================
+   LEFT SECTION
+================================ */
+.row-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.indigo-icon {
+  color: #6366f1;
+}
+
+/* ===============================
+   TEXT LABELS (IMPORTANT FIX)
+================================ */
+.node-label-big {
+  font-size: 15px;
+  font-weight: 600;
+  color: #111827;            /* ✅ */
+}
+
+.node-label-mid {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1f2937;            /* ✅ */
+}
+
+.node-label-small {
+  font-size: 13px;
+  font-weight: 500;
+  color: #1f2937;            /* ✅ */
+}
+
+.menu-labels-big {
+  display: flex;
+  flex-direction: column;
+}
+
+.url-label-big {
+  font-size: 11px;
+  color: #6b7280;            /* ✅ */
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* ===============================
+   RIGHT SECTION
+================================ */
+.row-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ===============================
+   BADGES
+================================ */
+.count-pill-big,
+.count-pill-mid {
+  background: #eef2ff;
+  color: #4338ca;            /* ✅ darker */
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 999px;
+}
+
+.seq-badge,
+.seq-badge-mid,
+.seq-badge-small {
+  background: #f1f5f9;
+  font-size: 11px;
+  padding: 3px 6px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #334155;            /* ✅ */
+}
+
+.type-badge {
+  font-size: 11px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: #e0e7ff;
+  color: #3730a3;            /* ✅ */
+}
+
+.status-tag-big {
+  font-size: 11px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-weight: 500;
+}
+
+.status-tag-big.active {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.status-tag-big.inactive {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.ss-badge-big {
+  background: #ede9fe;
+  color: #6d28d9;
+  font-size: 11px;
+  padding: 4px 6px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+/* ===============================
+   CHILD CONTAINER
+================================ */
+.tree-children {
+  margin-top: 6px;
+}
+
+.tree-children.deeper {
+  margin-top: 6px;
+}
+
+/* ===============================
+   ANIMATION
+================================ */
+.animate-fade-in {
+  animation: fadeIn 0.25s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,984 @@
+/* Layout Wrapper */
+.field-config-container {
+    display: flex;
+    background: white;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    min-height: 600px;
+    overflow: hidden;
+    margin-top: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+/* Sidebar logic from Untitled 2.jpg */
+.groups-sidebar { width: 300px; border-right: 1px solid #e2e8f0; background: #fcfcfd; }
+.stepper-card {
+  background: white;
+  padding: 24px 40px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32px; /* Thoda gap configuration card se pehle */
+}
+
+.step-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  z-index: 2;
+  flex: 1; /* Equal spacing ke liye */
+}
+
+.step-circle {
+  width: 36px;
+  height: 36px;
+  background: #f3f4f6; /* Inactive color */
+  border: 1px solid #e5e7eb;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  color: #9ca3af;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.step-label {
+  font-size: 14px;
+  color: #6b7280;
+  font-weight: 500;
+}
+/* Ye container dono buttons ko handle karega */
+.form-actions-footer {
+    display: flex !important; /* Force flex layout */
+    flex-direction: row !important;
+    justify-content: space-between !important; /* Cancel ko left aur Save ko right mein dhaklega */
+    align-items: center;
+    width: 100%; /* Poori width cover karega */
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #bfdbfe; /* Light blue line */
+}
+
+/* Cancel Button Styling */
+.btn-cancel-figma-inline {
+    background-color: #ffffff !important; /* Background white */
+    color: #000000 !important; /* Text color black */
+    border: 1px solid #e2e8f0 !important; /* Light grey border */
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    margin: 0 !important; /* Extra margins hatao */
+}
+/* Form ke andar ka heading label container */
+.form-inner-header-label {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important; /* "+" icon aur text ke beech ka gap */
+    font-size: 18px !important;
+    font-weight: 600 !important;
+    color: #1e40af !important; /* Dark blue color taaki light blue background par dikhe */
+    margin-bottom: 24px !important;
+    width: 100% !important;
+    text-align: left !important;
+}
+
+/* Agar koi span use kiya hai text ke liye */
+.form-inner-header-label span {
+    display: inline-block !important;
+    white-space: nowrap !important; /* Text ko wrap hone se rokega */
+}
+
+
+/* Save Button (Right side) */
+.btn-save-figma {
+    background-color: #2563eb !important; /* Blue background */
+    color: #ffffff !important; /* White text */
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+}
+
+/* Done State */
+.step-wrapper.done .step-circle {
+  background: #2563eb;
+  color: white;
+  border-color: #2563eb;
+}
+
+.step-wrapper.done .step-label {
+  color: #111827;
+}
+
+/* Active State */
+.step-wrapper.active .step-circle {
+  background: #2563eb;
+  color: white;
+  border-color: #2563eb;
+}
+
+.step-wrapper.active .step-label {
+  color: #2563eb;
+  font-weight: 600;
+}
+
+/* Connecting Lines */
+.step-line {
+  height: 2px;
+  background: #e5e7eb;
+  flex: 2; /* Lines ko bada karne ke liye */
+  margin-bottom: 24px; /* Circles ke center alignment ke liye adjust karein */
+  position: relative;
+  z-index: 1;
+}
+
+.step-line.done {
+  background: #2563eb;
+}
+/* Card Grid layout for Field Control */
+.type-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 12px;
+}
+
+.type-card {
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    background: #fff;
+    transition: 0.2s;
+}
+
+.type-card.selected {
+    border: 2px solid #2563eb;
+    background: #f0f7ff;
+}
+
+/* Dropdown Grid Row for Yes/No options */
+.dropdown-grid-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    padding: 20px;
+    background: #f8fafc;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+}
+/* Footer Visibility and Spacing */
+.master-footer-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 32px;
+  padding: 24px 0;
+  border-top: 1px solid #e5e7eb;
+}
+/* Header styling */
+.master-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+/* Add Field button top-right positioning */
+.fields-header {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.add-field-btn {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+/* Middle button color fix */
+.create-first-field-btn.primary-blue {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 auto; /* Center horizontal */
+  cursor: pointer;
+  box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+}
+
+.create-first-field-btn.primary-blue:hover {
+  background-color: #1d4ed8;
+}
+/* Image 3 Grid Layout */
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.form-hint {
+    display: block;
+    font-size: 12px;
+    color: #94a3b8;
+    margin-top: 4px;
+}
+
+/* Field Type Card Grid as per Figma Image 3 */
+.type-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.type-card {
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    background: #fff;
+    transition: all 0.2s;
+}
+
+.type-card:hover { border-color: #2563eb; background: #f8faff; }
+.type-card.selected { border: 2px solid #2563eb; background: #f0f7ff; }
+
+.type-icon-box {
+    width: 40px;
+    height: 40px;
+    background: #f1f5f9;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #64748b;
+}
+
+.type-card.selected .type-icon-box { background: #2563eb; color: #fff; }
+
+.type-title { font-weight: 600; font-size: 14px; color: #1e293b; display: block; }
+.type-desc { font-size: 11px; color: #94a3b8; }
+/* Sidebar Active Text Color Fix */
+.sidebar-item.active .group-name, 
+.sidebar-item.active .fields-count {
+    color: #ffffff !important; /* Blue background par white text behtar lagega */
+}
+
+.sidebar-item.active .chevron-icon {
+    color: #ffffff;
+}
+/* Container & Layout */
+.field-config-container {
+    display: flex;
+    gap: 0;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    overflow: hidden;
+    min-height: 600px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Sidebar Styling */
+.groups-sidebar {
+    width: 280px;
+    background: #f8fafc;
+    border-right: 1px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-header {
+    padding: 20px;
+    font-weight: 600;
+    color: #1e293b;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.sidebar-item {
+    padding: 16px 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.2s;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.sidebar-item.active {
+    background: #eff6ff;
+    border-left: 4px solid #2563eb;
+}
+
+.sidebar-item.inactive:hover {
+    background: #f1f5f9;
+}
+
+.group-name {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: #334155;
+}
+
+.fields-count {
+    display: block;
+    font-size: 12px;
+    color: #64748b;
+    margin-top: 4px;
+}
+
+/* Main Display Area */
+.fields-display-area {
+    flex: 1;
+    padding: 24px;
+    background: #fff;
+    overflow-y: auto;
+}
+
+.fields-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 24px;
+}
+
+.fields-heading {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.fields-subheading {
+    font-size: 14px;
+    color: #64748b;
+}
+
+/* Field Visual Card */
+.added-fields-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.field-visual-card {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    gap: 16px;
+}
+
+.field-card-number {
+    width: 32px;
+    height: 32px;
+    background: #f1f5f9;
+    color: #64748b;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.field-card-content {
+    flex: 1;
+}
+
+.field-card-label {
+    font-weight: 600;
+    color: #1e293b;
+    font-size: 15px;
+}
+
+.field-card-badges {
+    display: flex;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.badge {
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.badge.required { background: #fee2e2; color: #dc2626; }
+.badge.type { background: #f1f5f9; color: #475569; }
+
+.field-card-details {
+    margin-top: 8px;
+    font-size: 13px;
+    color: #64748b;
+    display: flex;
+    gap: 20px;
+}
+
+/* Buttons */
+.add-field-btn {
+    background: #2563eb;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: none;
+    cursor: pointer;
+}
+
+.action-icon-btn {
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+    background: white;
+    cursor: pointer;
+    color: #64748b;
+}
+
+.action-icon-btn.edit:hover { color: #2563eb; background: #eff6ff; }
+.action-icon-btn.delete:hover { color: #dc2626; background: #fef2f2; }
+
+/* Form Elements */
+.type-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.type-card {
+    padding: 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.type-card.selected {
+    border-color: #2563eb;
+    background: #eff6ff;
+}
+
+.progress-alert-bar {
+    margin-top: 20px;
+    padding: 12px 16px;
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-radius: 8px;
+    color: #166534;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+}
+.sidebar-item.active {
+    background: #2563eb !important;
+}
+/* Field Visual Card Styling */
+.field-visual-card {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    gap: 16px;
+    /* Smooth transition hover effect ke liye */
+    transition: all 0.3s ease; 
+    cursor: default;
+}
+
+/* Hover Effect: Light Blue Shadow */
+.field-visual-card:hover {
+    border-color: #bfdbfe; /* Light blue border on hover */
+    background-color: #f8faff; /* Very subtle blue tint */
+    /* Light blue glow effect */
+    box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.1), 
+                0 4px 6px -2px rgba(37, 99, 235, 0.05);
+    transform: translateY(-2px); /* Card thoda upar uthega */
+}
+
+/* Sidebar Item Hover Sync */
+.sidebar-item.inactive:hover {
+    background-color: #f1f5f9;
+    box-shadow: inset 4px 0 0 0 #bfdbfe; /* Subtle left blue accent on hover */
+}
+
+/* Jab sidebar item active ho, tab text aur icon white ho jayein */
+.sidebar-item.active .group-name,
+.sidebar-item.active .fields-count,
+.sidebar-item.active .chevron-icon {
+    color: #ffffff !important;
+}
+/* Required Checkbox Styling as per Figma Image 5 */
+.custom-check-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    cursor: pointer;
+}
+
+.check-text .check-title { font-weight: 600; font-size: 14px; color: #1e293b; display: block; }
+.check-text .check-desc { font-size: 12px; color: #94a3b8; }
+
+/* Meta Toggles Row */
+.meta-toggles {
+    display: flex;
+    gap: 24px;
+    border-top: 1px solid #f1f5f9;
+    padding-top: 16px;
+}
+
+.check-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #475569;
+    cursor: pointer;
+}
+
+/* Top Right Button Position */
+.fields-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+/* Stepper spacing */
+.stepper-card {
+  background: white;
+  padding: 24px 40px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+.sidebar-item {
+    padding: 18px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.sidebar-item.inactive { background: #ffffff; border: 1px solid #f1f5f9; color: #475569; }
+.sidebar-item.active { background: #2563eb; color: white; border: 1px solid #2563eb; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2); }
+
+/* Field Type Grid spacing as per Untitled 3.jpg */
+.type-grid { 
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 15px; 
+    margin-top: 15px; 
+}
+
+.type-card {
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 20px 15px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    background: white;
+}
+
+/* Checkbox group spacing as per Untitled 5.jpg */
+.checkbox-group-row {
+    display: flex;
+    gap: 30px;
+    padding: 20px 0;
+    border-top: 1px solid #f1f5f9;
+}
+
+.check-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #334155;
+}
+
+/* Master Footer actions position fix */
+.master-footer-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+    padding: 30px 0;
+    border-top: 1px solid #e2e8f0;
+}
+/* Layout Fixes */
+.main-content-wrapper.figma-layout {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 40px;
+}
+
+/* Header Cancel Styling */
+.cancel-btn-top {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #64748b;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+/* Stepper (Image 1 Style) */
+.stepper-horizontal-card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    border: 1px solid #f1f5f9;
+    display: flex;
+    justify-content: center;
+}
+.step-wrapper { display: flex; align-items: center; gap: 12px; }
+.step-item { display: flex; align-items: center; gap: 10px; }
+.step-label { font-size: 14px; font-weight: 500; color: #64748b; }
+.step-item.done .step-label { color: #0f172a; }
+.step-item.active .step-label { color: #2563eb; font-weight: 700; }
+
+.circle-check { width: 30px; height: 30px; background: #2563eb; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; }
+.circle-num { width: 30px; height: 30px; background: #2563eb; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; }
+.circle-num-grey { width: 30px; height: 30px; background: #fff; color: #94a3b8; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid #e2e8f0; font-size: 14px; }
+
+.step-line-blue { width: 100px; height: 2px; background: #2563eb; }
+.step-line-grey { width: 100px; height: 2px; background: #e2e8f0; }
+
+/* Sidebar Logic Fix - Untitled 2.jpg style */
+.groups-sidebar { width: 300px; border-right: 1px solid #e2e8f0; background: #fcfcfd; }
+.sidebar-header { padding: 20px; border-bottom: 1px solid #f1f5f9; font-weight: 700; display: flex; align-items: center; gap: 10px; color: #1e293b; }
+.sidebar-list { padding: 15px; }
+
+.sidebar-item {
+    padding: 16px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.sidebar-item.inactive {
+    background: #ffffff;
+    border: 1px solid #f1f5f9;
+    color: #475569;
+}
+
+.sidebar-item.inactive:hover { background: #f8fafc; }
+
+.sidebar-item.active {
+    background: #2563eb;
+    color: white;
+    border: 1px solid #2563eb;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
+
+.sidebar-item.active .fields-count { color: #bfdbfe; }
+.group-name { font-size: 14px; font-weight: 600; display: block; }
+.fields-count { font-size: 12px; }
+
+/* Right Section Display Area */
+.fields-display-area { flex: 1; padding: 30px; background: white; }
+.fields-heading { font-size: 20px; font-weight: 700; color: #0f172a; }
+.fields-subheading { font-size: 14px; color: #64748b; margin-bottom: 20px; }
+
+/* Empty Placeholder - Untitled 6.jpg */
+.dotted-box {
+    border: 2px dashed #cbd5e1;
+    border-radius: 12px;
+    padding: 70px 40px;
+    text-align: center;
+    background: #f8fafc;
+    margin-top: 20px;
+}
+.placeholder-text { font-size: 14px; color: #64748b; max-width: 400px; margin: 15px auto 25px auto; line-height: 1.6; }
+.btn-add-first { background: #2563eb; color: white; border: none; padding: 12px 24px; border-radius: 8px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 8px; margin: 0 auto; }
+
+/* Footer Action Buttons Fix */
+.master-footer-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+    padding: 25px 0;
+    border-top: 1px solid #e2e8f0;
+}
+
+.btn-back-figma {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    color: #64748b;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.btn-next-figma {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 12px 36px;
+    border-radius: 8px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    opacity: 0.9;
+}
+
+/* 3x3 Field Type Grid - Untitled 3.jpg */
+.type-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 12px; }
+.type-card { border: 1px solid #e2e8f0; border-radius: 10px; padding: 15px; display: flex; gap: 12px; cursor: pointer; transition: 0.2s; background: white; }
+.type-card.selected { border: 2px solid #2563eb; background: #eff6ff; }
+.type-icon-box { width: 40px; height: 40px; background: #f1f5f9; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #64748b; }
+.type-card.selected .type-icon-box { background: #2563eb; color: white; }
+.type-title { font-weight: 600; font-size: 14px; display: block; }
+.type-desc { font-size: 11px; color: #94a3b8; }
+/* Layout & Stepper */
+.stepper-horizontal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin: 30px 0;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+}
+.circle-check { width: 30px; height: 30px; background: #2563eb; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+.circle-num { width: 30px; height: 30px; background: #2563eb; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+.circle-num-grey { width: 30px; height: 30px; background: #f8fafc; color: #94a3b8; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid #e2e8f0; }
+.step-line-blue { width: 100px; height: 2px; background: #2563eb; }
+.step-line-grey { width: 100px; height: 2px; background: #e2e8f0; }
+
+/* Main Area */
+.field-config-container {
+    display: flex;
+    min-height: 550px;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* Sidebar */
+.groups-sidebar { width: 280px; border-right: 1px solid #e2e8f0; background: #fcfcfd; }
+.sidebar-header { padding: 20px; border-bottom: 1px solid #f1f5f9; font-weight: 700; display: flex; gap: 10px; }
+.sidebar-item { padding: 15px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: 0.2s; border-radius: 8px; margin: 5px 10px; }
+.sidebar-item.active { background: #2563eb; color: white; }
+.sidebar-item.active .fields-count { color: #bfdbfe; }
+
+/* Type Cards (3x3 Grid from Image 3 & 5) */
+.type-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 15px; }
+.type-card { border: 1px solid #e2e8f0; border-radius: 10px; padding: 15px; display: flex; gap: 12px; cursor: pointer; transition: 0.2s; }
+.type-card.selected { border: 2px solid #2563eb; background: #eff6ff; }
+.icon-box { width: 40px; height: 40px; background: #f1f5f9; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #64748b; }
+.type-card.selected .icon-box { background: #2563eb; color: white; }
+.t-name { font-weight: 600; font-size: 14px; display: block; }
+.t-desc { font-size: 11px; color: #94a3b8; }
+
+/* Empty Placeholder (Image 6) */
+.dotted-placeholder {
+    border: 2px dashed #cbd5e1;
+    border-radius: 12px;
+    padding: 60px;
+    text-align: center;
+    background: #f8fafc;
+    margin-top: 20px;
+}
+.btn-add-first { background: #2563eb; color: white; border: none; padding: 12px 24px; border-radius: 8px; font-weight: 600; margin-top: 20px; display: inline-flex; gap: 10px; }
+
+/* Buttons & Forms */
+.add-field-btn { background: #2563eb; color: white; border: none; padding: 8px 16px; border-radius: 6px; display: flex; gap: 5px; font-weight: 600; cursor: pointer; }
+.btn-save { background: #2563eb; color: white; border: none; padding: 10px 20px; border-radius: 6px; font-weight: 600; }
+.btn-cancel { background: #fff; border: 1px solid #e2e8f0; padding: 10px 20px; border-radius: 6px; color: #64748b; }
+/* Stepper Styling (Design 1) */
+.stepper-card-horizontal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin: 20px 0 40px 0;
+}
+
+.step-item { display: flex; align-items: center; gap: 8px; font-size: 14px; color: #64748b; font-weight: 500; }
+.step-item.active { color: #2563eb; font-weight: 700; }
+.step-item.done { color: #0f172a; }
+
+.circle-check { width: 28px; height: 28px; background: #2563eb; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; }
+.circle-num { width: 28px; height: 28px; background: #2563eb; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+.circle-num-grey { width: 28px; height: 28px; background: #f1f5f9; color: #94a3b8; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid #e2e8f0; }
+
+.step-line-blue { width: 80px; height: 2px; background: #2563eb; }
+.step-line-grey { width: 80px; height: 2px; background: #e2e8f0; }
+
+/* Sidebar Group List */
+.groups-sidebar {
+    width: 280px;
+    border-right: 1px solid #e2e8f0;
+    background: #fcfcfd;
+}
+
+.sidebar-header {
+    padding: 24px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    color: #1e293b;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.sidebar-list { padding: 12px; }
+.sidebar-item {
+    padding: 16px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 8px;
+    transition: 0.2s;
+}
+
+.sidebar-item:hover { background: #f1f5f9; }
+.sidebar-item.active { background: #2563eb; color: white; }
+.sidebar-item.active .fields-count { color: #bfdbfe; }
+
+.group-name { font-size: 14px; font-weight: 600; display: block; }
+.fields-count { font-size: 12px; color: #64748b; }
+
+/* Right Display Area */
+.fields-display-area {
+    flex: 1;
+    padding: 30px;
+    background: white;
+}
+
+.fields-heading { font-size: 20px; font-weight: 700; color: #0f172a; }
+.fields-subheading { font-size: 14px; color: #64748b; margin-top: 4px; }
+
+/* Empty State Dotted Box (Design 6) */
+.dotted-box {
+    border: 2px dashed #e2e8f0;
+    border-radius: 12px;
+    padding: 60px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: #f8fafc;
+    margin-top: 20px;
+}
+
+.icon-circle { margin-bottom: 20px; }
+.placeholder-title { font-size: 18px; font-weight: 600; margin-bottom: 10px; }
+.placeholder-text { font-size: 14px; color: #64748b; max-width: 400px; margin-bottom: 30px; line-height: 1.6; }
+
+/* 3x3 Type Grid (Design 3 & 5) */
+.type-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.type-card {
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    background: white;
+    transition: 0.2s;
+}
+
+.type-card:hover { border-color: #2563eb; background: #f0f7ff; }
+.type-card.selected { border: 2px solid #2563eb; background: #eff6ff; }
+
+.type-icon-box {
+    width: 40px; height: 40px;
+    background: #f1f5f9;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    color: #64748b;
+}
+
+.type-card.selected .type-icon-box { background: #2563eb; color: white; }
+.type-title { font-size: 14px; font-weight: 600; display: block; }
+.type-desc { font-size: 11px; color: #94a3b8; }
+
+/* Form Helpers */
+.add-field-form-wrapper { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 25px; }
+.form-inner-header-label { display: flex; align-items: center; gap: 8px; font-weight: 600; margin-bottom: 20px; font-size: 15px; }
+.req-indicator { margin-left: auto; color: #ef4444; font-size: 12px; }
+.checkbox-group-row { display: flex; gap: 20px; padding: 10px 0; }
+.check-label { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 500; cursor: pointer; }
+.hint-text { font-size: 11px; color: #94a3b8; display: block; margin-top: 4px; }
+
+/* Buttons */
+.form-actions-footer { display: flex; justify-content: flex-end; gap: 12px; margin-top: 25px; border-top: 1px solid #e2e8f0; padding-top: 20px; }
+.btn-save-figma { background: #2563eb; color: white; border: none; padding: 10px 24px; border-radius: 8px; font-weight: 600; display: flex; align-items: center; gap: 8px; }
+.btn-cancel-figma { background: white; border: 1px solid #e2e8f0; color: #64748b; padding: 10px 24px; border-radius: 8px; font-weight: 600; }

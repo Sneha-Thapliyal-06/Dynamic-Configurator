@@ -1,0 +1,250 @@
+html, body {
+  height: 100%;       /* Make body fill full viewport */
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(to bottom, #ffffff, #f3e8ff);
+  overflow-x: hidden;
+  height: 100vh;
+}
+.screen-container {
+  width: 100vw;
+  height: 100vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content-wrapper {
+  flex: 1;                /* fill vertical space under navbar */
+  display: flex;
+  flex-direction: column;
+  padding: 0 40px 40px 94px;
+}
+
+.master-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 0 20px 0;
+}
+
+.master-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+}
+
+.master-subtitle {
+  font-size: 14px;
+  color: #6b7280;
+  margin-top: 2px;
+}
+
+.cancel-btn {
+  color: #6b7280;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+
+.stepper-card {
+  background: white;
+  padding: 24px 40px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.step-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  z-index: 1;
+}
+
+.step-circle {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 2px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: #9ca3af;
+  background: white;
+}
+
+.step-label {
+  font-size: 12px;
+  color: #9ca3af;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.step-wrapper.active .step-circle {
+  background: #2563eb;
+  border-color: #2563eb;
+  color: white;
+}
+
+.step-wrapper.active .step-label {
+  color: #111827;
+  font-weight: 600;
+}
+
+.step-line {
+  flex: 1;
+  height: 2px;
+  background: #e5e7eb;
+  margin: 0 15px;
+  margin-top: -24px;
+}
+
+.form-container {
+  background: white;
+  padding: 32px;
+  border-radius: 20px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.03);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  flex: 1; /* Allow form to stretch */
+  /* -y: auto; Scroll if form too tall */
+}
+/* Checkbox specific styling */
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  grid-column: span 2; /* Checkbox full width le sake agar zaroorat ho */
+}
+
+.checkbox-label {
+  display: flex !important;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.w-auto {
+  width: auto !important;
+  margin: 0;
+}
+
+/* Ensure inputs and selects have consistent height */
+input, select {
+  height: 45px; 
+}
+
+.form-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 24px;
+}
+
+.form-header-group {
+  margin-bottom: 24px;
+}
+
+.form-desc {
+  font-size: 14px;
+  color: #6b7280;
+  margin-top: 2px;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.form-group label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 8px;
+  display: block;
+}
+
+label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+  display: block;
+  margin-bottom: 8px;
+}
+
+
+input, select {
+  width: 100%;
+  box-sizing: border-box;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+input:focus, select:focus {
+  border-color: #2563eb;
+}
+
+
+.tip-box {
+  background: #eff6ff;
+  border: 1px solid #dbeafe;
+  color: #1e40af;
+  font-size: 13px;
+  padding: 14px;
+  border-radius: 10px;
+  margin-top: 24px;
+}
+
+.master-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32px 0 50px 0;
+  width: 100%;
+}
+
+.btn-secondary {
+  background: white;
+  border: 1px solid #d1d5db;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-weight: 500;
+  color: #4b5563;
+  cursor: pointer;
+}
+
+.btn-primary-next {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 10px 32px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.req {
+  color: #ef4444;
+  margin-left: 2px;
+}

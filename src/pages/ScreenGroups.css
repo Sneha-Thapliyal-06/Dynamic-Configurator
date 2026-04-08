@@ -1,0 +1,742 @@
+/* --- BASE STYLES --- */
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background: linear-gradient(to bottom, #ffffff, #f3e8ff);
+  overflow-x: hidden;
+  height: 100vh;
+}
+
+/* --- LAYOUT --- */
+.screen-container {
+  width: 100vw;
+  min-height: 100vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+.main-content-wrapper { padding: 0 10% 100px 10%; background: #fcfcfd; }
+
+.stepper-card {
+    display: flex;
+    justify-content: space-around;
+    padding: 30px;
+    background: white;
+    border-radius: 12px;
+    border: 1px solid #edf2f7;
+    margin-bottom: 25px;
+}
+
+/* Empty State Card (Figma Image 3) */
+.empty-state-card {
+    border: 2px dashed #e2e8f0;
+    border-radius: 16px;
+    padding: 60px;
+    text-align: center;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+/* --- FORM WRAPPER UPDATE --- */
+.group-form-wrapper {
+  border: 1px solid #3b82f6;
+  border-radius: 12px;
+  padding: 24px;
+  /* Light Blue background as requested */
+  background-color: #f0f7ff !important; 
+  margin-bottom: 20px;
+}
+/* --- FORM BACKGROUND UPDATE --- */
+.group-form-wrapper {
+  border: 1px solid #3b82f6;
+  border-radius: 12px;
+  padding: 24px;
+  /* Light Blue background as requested */
+  background-color: #f0f7ff !important; 
+  margin-bottom: 20px;
+}
+/* Card Layout (Untitled 3.jpg) */
+.group-detail-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  transition: all 0.2s;
+}
+
+.group-detail-card:hover {
+  border-color: #3b82f6;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.08);
+}
+/* Figma Image 3 ke subtitle count ke liye */
+.groups-count-text {
+  font-size: 13px;
+  color: #64748b;
+  margin-left: 30px;
+  margin-top: -2px;
+}
+
+/* List ke upar "Your Groups | 2 total" row ke liye */
+.your-groups-subheader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #f1f5f9;
+  margin-bottom: 15px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #475569;
+}
+
+.total-indicator {
+  font-size: 12px;
+  color: #94a3b8;
+  font-weight: 400;
+}
+
+/* Ready message with circle icon */
+.ready-msg {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  color: #166534;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.ready-icon-circle {
+  width: 20px;
+  height: 20px;
+  background: white;
+  color: #166534;
+  border: 1px solid #166534;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+}
+.card-title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.card-heading {
+  font-weight: 600;
+  color: #1e293b;
+  font-size: 15px;
+}
+
+/* Badges */
+.badge-type {
+  background: #f0f7ff;
+  color: #2563eb;
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.badge-layout {
+  background: #f8fafc;
+  color: #64748b;
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  border: 1px solid #e2e8f0;
+}
+
+.card-table-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #64748b;
+}
+
+.table-name {
+  font-family: 'Courier New', Courier, monospace;
+  background: #f1f5f9;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* Success Message Footer */
+.status-msg {
+  background: #f0fdf4;
+  color: #166534;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: 1px solid #bbf7d0;
+  font-size: 14px;
+}
+/* --- CHECKBOX ALIGNMENT FIX --- */
+.checkbox-container-aligned {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 42px; /* Standard input height matching others */
+  background: white; /* Optional: checkbox ke peeche white background input ki tarah */
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 0 10px;
+}
+
+/* Checkbox specific styling */
+.checkbox-container-aligned input[type="checkbox"] {
+  width: 18px !important;
+  height: 18px !important;
+  cursor: pointer;
+  accent-color: #2563eb; /* Professional Blue color */
+  margin: 0;
+}
+
+.checkbox-text-label {
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: #64748b !important;
+  margin-bottom: 0 !important; /* Label margin reset */
+  cursor: pointer;
+}
+
+/* Label alignment for grid */
+.form-group label {
+  text-align: left;
+  display: block;
+}
+.group-form-wrapper {
+  background-color: #f0f7ff !important; /* Light Blue Background */
+  border: 1px solid #3b82f6;
+  border-radius: 12px;
+  padding: 24px;
+}
+
+/* Dropdown styling to match inputs */
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  align-items: end; /* Isse saari fields niche se align rahengi */
+}
+/* --- CHECKBOX STYLING --- */
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: #334155;
+}
+
+/* Checkbox ka size control karne ke liye */
+.checkbox-label input[type="checkbox"] {
+  width: 16px !important;    /* Chota size */
+  height: 16px !important;   /* Chota size */
+  cursor: pointer;
+  accent-color: #2563eb;     /* Blue color instead of black */
+  margin: 0;
+}
+
+/* Grid layout fix for queries */
+.grid-1 {
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 100%;
+}
+.create-first-btn {
+    background: #3b82f6;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Form Styles (Figma Image 2) */
+.group-form-wrapper {
+    background: #f8faff;
+    border: 1px solid #dbeafe;
+    border-radius: 12px;
+    padding: 24px;
+}
+
+.form-inner-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.add-label { color: #2563eb; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+
+.form-group label { display: block; font-size: 13px; font-weight: 600; color: #475569; margin-bottom: 6px; }
+
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    outline: none;
+}
+
+.form-footer-btns {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #e2e8f0;
+}
+
+.btn-add-submit {
+    background: #3b82f6;
+    color: white;
+    padding: 10px 24px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-cancel-light {
+    background: white;
+    border: 1px solid #e2e8f0;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+/* --- PRIMARY BUTTONS (Add Group, Next, Create First Group) --- */
+.btn-primary-next, 
+.btn-next-figma, 
+.btn-save-figma, 
+.create-first-btn, 
+.add-group-btn {
+  background-color: #2563eb !important; /* Royal Blue */
+  color: #ffffff !important;
+  border: none !important;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+/* Hover Effect */
+.btn-primary-next:hover, 
+.btn-next-figma:hover, 
+.btn-save-figma:hover, 
+.create-first-btn:hover, 
+.add-group-btn:hover {
+  background-color: #1d4ed8 !important; /* Darker blue on hover */
+}
+
+/* Active/Click Effect */
+.btn-primary-next:active, 
+.btn-next-figma:active, 
+.create-first-btn:active {
+  transform: scale(0.98);
+}
+
+/* --- SECONDARY/OUTLINE BUTTONS (Back, Cancel) --- */
+.btn-secondary, 
+.btn-back-figma, 
+.btn-cancel-figma, 
+.btn-cancel-light {
+  background-color: #ffffff !important;
+  color: #64748b !important; /* Slate grey text */
+  border: 1px solid #e2e8f0 !important;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover, 
+.btn-cancel-figma:hover {
+  background-color: #f8fafc !important;
+  border-color: #cbd5e1 !important;
+}
+
+.main-content-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0 150px 90px 150px;
+}
+
+/* --- ACTION BUTTONS (Edit/Delete) --- */
+.card-right-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-left: 20px;
+}
+
+.action-btn {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border: 1px solid #e2e8f0; 
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+  overflow: visible;
+}
+
+.action-btn svg {
+  display: block !important;
+  stroke-width: 2px;
+  stroke: currentColor;
+}
+
+.edit-btn {
+  color: #60a5fa !important;
+  border-color: #dbeafe;
+}
+
+.edit-btn:hover {
+  background-color: #eff6ff !important;
+  border-color: #3b82f6 !important;
+  color: #2563eb !important;
+  border-radius: 12px;
+}
+
+.delete-btn {
+  color: #ef4444 !important;
+  border-color: #fee2e2;
+}
+
+.delete-btn:hover {
+  background-color: #fef2f2 !important;
+  border-color: #dc2626 !important;
+  color: #b91c1c !important;
+  border-radius: 12px;
+}
+
+/* --- STEPPER COMPONENTS --- */
+.step-wrapper.done .step-circle {
+  background: #2563eb;
+  border-color: #2563eb;
+  color: white;
+}
+
+.active-line {
+  background: #2563eb !important;
+}
+
+/* --- HEADER COMPONENTS --- */
+.groups-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.title-with-icon {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.blue-icon {
+  color: #2563eb;
+}
+
+.subtitle-text {
+  font-size: 14px;
+  color: #64748b;
+  margin: 4px 0 0 28px;
+}
+
+.add-group-btn {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* --- EMPTY STATE BOX --- */
+.dotted-box-container {
+  width: 100%;
+  border: 2px dashed #e2e8f0;
+  border-radius: 12px;
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  transition: margin-top 0.3s ease-in-out;
+}
+
+.empty-state-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 400px;
+}
+
+.no-groups-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 12px 0 4px 0;
+}
+
+.empty-description {
+  font-size: 14px;
+  color: #64748b;
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+.create-first-btn {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+/* --- GROUP FORM STYLES --- */
+.group-form-wrapper {
+  border: 1px solid #3b82f6;
+  border-radius: 12px;
+  padding: 24px;
+  background: #f8faff; /* Slightly blue background as per Figma image 2 */
+  margin-bottom: 20px;
+}
+
+/* Grid Layout for Form */
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #334155;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 10px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #1e293b;
+  background: white;
+  outline: none;
+}
+
+.form-group input:focus {
+  border-color: #3b82f6;
+}
+
+.req-indicator {
+  font-size: 12px;
+  color: #94a3b8;
+  border: 1px solid #e2e8f0;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+/* Form Footer Buttons */
+.form-footer-btns {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+  border-top: 1px solid #e2e8f0;
+  padding-top: 20px;
+}
+
+.btn-cancel-light {
+  background: white;
+  border: 1px solid #cbd5e1;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #64748b;
+}
+
+.btn-add-submit {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* --- ADDED GROUP LIST --- */
+.group-detail-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 20px;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.card-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.seq-circle {
+  width: 32px;
+  height: 32px;
+  background: #eff6ff;
+  color: #2563eb;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+/* --- FOOTER NAVIGATION --- */
+.master-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32px 0 50px 0;
+  width: 100%;
+}
+
+.btn-back, .btn-secondary {
+  padding: 10px 24px;
+  border: 1px solid #cbd5e1;
+  background: white;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-next, .btn-primary-next {
+  padding: 10px 30px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+/* Green Message Box jo white card ke andar cards ke neeche aayega */
+.ready-msg-inline {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* Icon aur text ke beech ka gap */
+  background-color: #f0fdf4; /* Light Green background (Design ke mutabiq) */
+  border: 1px solid #dcfce7; /* Subtle green border */
+  color: #166534; /* Dark green text color */
+  padding: 12px 16px; /* Spacing kam rakhi gayi hai */
+  border-radius: 8px; /* Rounded corners */
+  margin-top: 20px; /* Card list aur box ke beech ka gap */
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Question Mark Icon styling */
+.ready-icon-green {
+  color: #22c55e; /* Lucide icon ka green color */
+  flex-shrink: 0; /* Icon size maintain rahega agar text lamba ho */
+}
+
+/* Bold text inside the message */
+.ready-msg-inline b {
+  font-weight: 700;
+  color: #15803d;
+}
+
+/* Card list area ki padding adjust karne ke liye */
+.groups-list-area {
+  padding-top: 5px; /* "Your Groups" ke upar ki space kam karne ke liye */
+}
