@@ -81,7 +81,7 @@ namespace api.Controllers
                     existing.Status = model.Status;
                     existing.ModifiedBy = model.UserId;
                     existing.ModifiedOn = currentTime;
-                    existing.Sequence = model.Sequence; // Add this line
+                    existing.Sequence = model.Sequence; 
 
                     await _context.SaveChangesAsync();
                     return Ok(existing);

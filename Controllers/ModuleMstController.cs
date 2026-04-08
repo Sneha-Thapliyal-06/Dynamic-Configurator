@@ -49,7 +49,7 @@ namespace api.Controllers
                     {
                         ModuleName = model.ModuleName,
                         icon = model.icon,
-                        Status = model.Status ?? "Active", // Default 'Active' agar null ho
+                        Status = model.Status ?? "Active", 
                         Link = model.Link,
                         Sequence = model.Sequence,
                         HeaderId = model.HeaderId,

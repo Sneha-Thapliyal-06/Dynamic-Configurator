@@ -10,7 +10,7 @@ namespace api.Models
         public long? Id { get; set; }
         public long? ApprovalTypeID { get; set; }
         public string? EmployeeID { get; set; }
-        //public string? EmployeeName { get; set; }
+
         public int? Sequence { get; set; }
         public char Mode { get; set; }
     }

@@ -26,23 +26,16 @@ namespace api.Controllers
             return Ok(data);
         }
 
-        // FIX: Yeh method ab GroupId ke basis par fields return karega
-        // GET: api/group-fields/1066
-        // GET: api/group-fields/1066
-        // GET: api/group-fields/1066
-        // GET: api/group-fields/1066
         [HttpGet("{groupId:long}")]
         public async Task<IActionResult> GetFieldsByGroupId(long groupId)
         {
             try 
             {
-                // Database table 'GroupFieldsMaster' mein 'GroupId' column se match karein
                 var data = await _context.GroupFieldsMaster
                     .Where(x => x.GroupId == groupId && !x.IsDeleted)
                     .OrderBy(x => x.Sequence)
                     .ToListAsync();
-
-                // 404 se bachne ke liye empty array [] bhejein agar data na ho
+                    
                 return Ok(data); 
             }
             catch (Exception ex)
@@ -50,7 +43,7 @@ namespace api.Controllers
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
-        // POST: api/group-fields/manage
+
         [HttpPost("manage")]
         public async Task<IActionResult> ManageFields([FromBody] GroupFieldsDto model)
         {
@@ -86,7 +79,7 @@ namespace api.Controllers
 
                     if (existing == null) return NotFound("Field not found.");
 
-                    // Fields update logic
+  
                     existing.GroupId = model.GroupId;
                     existing.LookUpId = model.LookUpId;
                     existing.IsPrimery = model.IsPrimery;

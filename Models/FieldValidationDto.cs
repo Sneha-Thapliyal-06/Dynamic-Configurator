@@ -8,7 +8,7 @@ namespace api.Models
         public string? Validation { get; set; }
         public string? Value { get; set; }
         public string? Status { get; set; }
-        //public string? ErrorMessage { get; set; }
+
         
         public char Mode { get; set; } // A, E, D
     }

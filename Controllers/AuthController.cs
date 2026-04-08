@@ -25,25 +25,20 @@ namespace api.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginDto loginRequest)
         {
-            // 🔹 Change: Search using Email_Work instead of EmpName
             var user = await _context.Users.FirstOrDefaultAsync(u => u.Email_Work == loginRequest.Email_Work);
             
             if (user == null || user.Password != loginRequest.Password) 
                 return Unauthorized("Invalid credentials");
 
-            // 🔹 Change: Generate Access Token using Email_Work for unique identity
             var accessToken = JwtTokenServices.GenerateAccessToken(user.Email_Work, _config);
             var refreshToken = JwtTokenServices.GenerateRefreshToken();
 
-            // 2. Refresh Token DB mein save karein
             user.RefreshToken = refreshToken;
             user.RefreshTokenExpiry = DateTime.Now.AddDays(7);
             await _context.SaveChangesAsync();
 
-            // 3. Refresh Token ko HttpOnly Cookie mein daalein
             SetRefreshTokenCookie(refreshToken);
 
-            // Response same rakha hai taki frontend par 'EmpName' hi dikhe
             return Ok(new { token = accessToken, username = user.EmpName, id = user.ID });
         }
 
@@ -104,7 +99,6 @@ namespace api.Controllers
             if (user == null || user.RefreshTokenExpiry < DateTime.Now)
                 return Unauthorized("Invalid or expired refresh token");
 
-            // 🔹 Change: Generate new Access Token using Email_Work
             var newAccessToken = JwtTokenServices.GenerateAccessToken(user.Email_Work, _config);
             var newRefreshToken = JwtTokenServices.GenerateRefreshToken();
 

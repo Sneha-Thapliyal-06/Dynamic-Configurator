@@ -52,7 +52,6 @@ namespace api.Controllers
                         Validation = model.Validation,
                         Value = model.Value,
                         Status = model.Status,
-                        //ErrorMessage = model.ErrorMessage,
                         IsDeleted = false
                     };
                     _context.FieldValidation.Add(newEntry);
@@ -72,7 +71,6 @@ namespace api.Controllers
                     existing.Validation = model.Validation;
                     existing.Value = model.Value;
                     existing.Status = model.Status;
-                    //existing.ErrorMessage = model.ErrorMessage;
 
                     await _context.SaveChangesAsync();
                     return Ok(existing);

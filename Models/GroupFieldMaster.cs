@@ -21,8 +21,6 @@ namespace api.Models
         public bool? ShowInGrid { get; set; }
         public bool? ShowInScreen { get; set; }
         public long? Sequence { get; set; }
-
-        // Soft Delete
         public bool IsDeleted { get; set; } = false;
     }
 }

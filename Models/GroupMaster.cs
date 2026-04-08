@@ -25,8 +25,7 @@ namespace api.Models
 
         public string? Edit_qry { get; set; }   
         public string? Delete_qry { get; set; }
-        
-        // Audit Fields
+     
         public int? CreatedBy { get; set; }
         public DateTime? CreatedOn { get; set; }
         public int? ModifiedBy { get; set; }

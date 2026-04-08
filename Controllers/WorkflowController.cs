@@ -12,9 +12,6 @@ namespace api.Controllers
         private readonly AppDbContext _context;
         public WorkflowController(AppDbContext context) { _context = context; }
 
-        // ==========================================
-        // 🟢 APPROVAL MASTER (GET, GET{ID}, POST)
-        // ==========================================
         [HttpGet("approval")]
         public async Task<IActionResult> GetApprovals() => 
             Ok(await _context.Approvals.Where(x => !x.IsDeleted).ToListAsync());
@@ -26,30 +23,16 @@ namespace api.Controllers
             return Ok(data);
         }
 
-        // [HttpPost("manage-approval")]
-        // public async Task<IActionResult> ManageApproval([FromBody] ApprovalDto model)
-        // {
-        //     if (model.Mode == 'A') _context.Approvals.Add(new Approval { ApprovalName = model.ApprovalName });
-            // else if (model.Mode == 'E') {
-            //     var existing = await _context.Approvals.FindAsync(model.Id);
-            //     if (existing != null) existing.ApprovalName = model.ApprovalName;
-            // }
-            // else if (model.Mode == 'D') {
-            //     var toDelete = await _context.Approvals.FindAsync(model.Id);
-            //     if (toDelete != null) toDelete.IsDeleted = true;
-            // }
-            // await _context.SaveChangesAsync();
-            // return Ok(new { Message = "Approval Success" });
-        // }
+
         [HttpPost("manage-approval")]
         public async Task<IActionResult> ManageApproval([FromBody] ApprovalDto model)
         {
             if (model.Mode == 'A') {
                 var newApproval = new Approval { ApprovalName = model.ApprovalName };
                 _context.Approvals.Add(newApproval);
-                await _context.SaveChangesAsync(); // Database mein save hone ke baad ID generate hogi
+                await _context.SaveChangesAsync(); 
                 
-                // Success message ke saath generated ID bhejna zaroori hai
+
                 return Ok(new { Id = newApproval.Id, Message = "Approval Success" });
             }
             else if (model.Mode == 'E') {
@@ -63,9 +46,7 @@ namespace api.Controllers
             await _context.SaveChangesAsync();
             return Ok(new { Message = "Approval Success" });
         }
-                // ==========================================
-        // 🟢 APPROVER LIST (GET, GET{ID}, POST)
-        // ==========================================
+                
         [HttpGet("approver")]
         public async Task<IActionResult> GetApprovers() => 
             Ok(await _context.Approvers.Where(x => !x.IsDeleted).ToListAsync());
@@ -83,14 +64,12 @@ namespace api.Controllers
             if (model.Mode == 'A') _context.Approvers.Add(new Approver { 
                 ApprovalTypeID = model.ApprovalTypeID, 
                 EmployeeID = model.EmployeeID, 
-                //EmployeeName = model.EmployeeName, 
                 Sequence = model.Sequence });
             else if (model.Mode == 'E') {
                 var existing = await _context.Approvers.FindAsync(model.Id);
                 if (existing != null) {
                     existing.ApprovalTypeID = model.ApprovalTypeID;
                     existing.EmployeeID = model.EmployeeID;
-                    //existing.EmployeeName = model.EmployeeName;
                     existing.Sequence = model.Sequence;
                 }
             }
@@ -102,9 +81,7 @@ namespace api.Controllers
             return Ok(new { Message = "Approver Success" });
         }
 
-        // ==========================================
-        // 🟢 SCREEN MAPPING (GET, GET{ID}, POST)
-        // ==========================================
+
         [HttpGet("mapping")]
         public async Task<IActionResult> GetMappings() => 
             Ok(await _context.ApprovalScreenMappings.Where(x => !x.IsDeleted).ToListAsync());

@@ -25,7 +25,6 @@ namespace api.Models
         public int? ModifiedBy { get; set; }
         public DateTime? ModifiedOn { get; set; }
 
-        // ✅ Soft delete
         public bool IsDeleted { get; set; } = false;
     }
 }

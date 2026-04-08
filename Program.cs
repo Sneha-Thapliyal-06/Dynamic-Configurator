@@ -5,7 +5,6 @@ using api.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// 🔹 DB
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
 );
@@ -17,7 +16,7 @@ builder.Services
         options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
     });
 
-// 🔹 JWT Authentication
+
 builder.Services.AddAuthentication("Bearer")
 .AddJwtBearer("Bearer", options =>
 {
@@ -38,23 +37,12 @@ builder.Services.AddAuthentication("Bearer")
     };
 });
 
-// 🔹 Swagger (minimal)
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// 🔹 Middleware
-// app.UseCors(x => x
-//     //.AllowAnyOrigin()
-//     .WithOrigins("http://localhost:5294")
-//     .AllowAnyMethod()
-//     .AllowAnyHeader()
-//     .AllowCredentials()
-// );
-
-// 🔹 Middleware section
-// 🔹 Middleware section update
 app.UseCors(x => x
     .WithOrigins( 
         "http://localhost:5173",
@@ -69,7 +57,6 @@ app.UseCors(x => x
     .AllowCredentials() 
 );
 
-// 🔹 Swagger middleware
 app.UseSwagger();
 app.UseSwaggerUI();
 

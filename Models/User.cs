@@ -11,15 +11,15 @@ namespace api.Models
 
         [Required]
         [StringLength(100)]
-        public string EmpName { get; set; } = null!;   // Username
+        public string EmpName { get; set; } = null!; 
 
         [Required]
-        public string Password { get; set; } = null!; // 🔐 Hashed password
+        public string Password { get; set; } = null!; 
 
         [StringLength(150)]
         public string? Email_Work { get; set; }
 
-        public bool IsActive { get; set; }   // 1 = Active, 0 = Inactive
+        public bool IsActive { get; set; } 
         public string? RefreshToken { get; set; }
         public DateTime? RefreshTokenExpiry { get; set; }
     }

@@ -64,7 +64,7 @@ namespace api.Controllers
                         CreatedBy = model.UserId,
                         CreatedOn = currentTime, 
                         ModifiedBy = model.UserId,
-                        ModifiedOn = currentTime, // Creation ke waqt dono dates same
+                        ModifiedOn = currentTime,\
                         
                         IsDeleted = false
                     };
@@ -90,7 +90,7 @@ namespace api.Controllers
                     existing.Addbtn_qry = model.Addbtn_qry;
 
                     existing.ModifiedBy = model.UserId;
-                    existing.ModifiedOn = currentTime; // Sirf modified update hoga
+                    existing.ModifiedOn = currentTime; 
 
                     await _context.SaveChangesAsync();
                     return Ok(existing);
@@ -105,7 +105,7 @@ namespace api.Controllers
 
                     toDelete.IsDeleted = true;
                     toDelete.ModifiedBy = model.UserId;
-                    toDelete.ModifiedOn = currentTime; // Deletion date record karne ke liye
+                    toDelete.ModifiedOn = currentTime; 
 
                     await _context.SaveChangesAsync();
                     return Ok(new { Message = "Screen deleted successfully", SysId = model.SysId });

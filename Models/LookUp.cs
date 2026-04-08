@@ -11,7 +11,7 @@ namespace api.Models
 
         public string? lookUpName { get; set; }
 
-        public string? lookUpType { get; set; } // Database mein NULL dikh raha hai
+        public string? lookUpType { get; set; } 
 
         public string? LUDSType { get; set; }
 

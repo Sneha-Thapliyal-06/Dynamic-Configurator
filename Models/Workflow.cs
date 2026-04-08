@@ -18,9 +18,9 @@ namespace api.Models
         [Key]
         public long Id { get; set; }
         public long? ApprovalTypeID { get; set; }
-        public string? EmployeeID { get; set; } // Varchar for '@reportingTO'
+        public string? EmployeeID { get; set; } 
         public int? Sequence { get; set; }
-        //public string? EmployeeName { get; set; }
+
         public bool IsDeleted { get; set; } = false;
     }
 
